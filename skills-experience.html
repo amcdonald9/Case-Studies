@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills & Experience Matrix</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            background: #fff;
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .header p {
+            font-size: 1.3em;
+            color: #7f8c8d;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .back-link {
+            display: inline-block;
+            background: #fff;
+            color: #667eea;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        .skill-category {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #ecf0f1;
+        }
+        
+        .category-icon {
+            font-size: 3em;
+            margin-right: 20px;
+        }
+        
+        .category-title {
+            font-size: 2em;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        
+        .skill-bars {
+            margin-bottom: 30px;
+        }
+        
+        .skill-item {
+            margin-bottom: 25px;
+        }
+        
+        .skill-name {
+            font-size: 1.1em;
+            color: #2c3e50;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .skill-level {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        
+        .skill-bar-container {
+            background: #ecf0f1;
+            height: 12px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .skill-bar {
+            height: 100%;
+            border-radius: 10px;
+            transition: width 1s ease;
+        }
+        
+        .skill-bar.expert { background: linear-gradient(90deg, #27ae60 0%, #2ecc71 100%); }
+        .skill-bar.advanced { background: linear-gradient(90deg, #3498db 0%, #5dade2 100%); }
+        .skill-bar.proficient { background: linear-gradient(90deg, #f39c12 0%, #f1c40f 100%); }
+        .skill-bar.intermediate { background: linear-gradient(90deg, #e67e22 0%, #f39c12 100%); }
+        
+        .skill-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .detail-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .detail-card h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .detail-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .detail-card li {
+            padding: 5px 0;
+            color: #34495e;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .detail-card li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.5em;
+            line-height: 0.8;
+        }
+
+        .systems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .system-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            transition: transform 0.3s;
+        }
+
+        .system-badge:hover {
+            transform: translateY(-5px);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 20px;
+            border-left: 5px solid #f39c12;
+        }
+
+        .highlight-box h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .highlight-box p {
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .category-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .category-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
+            .skill-details {
+                grid-template-columns: 1fr;
+            }
+
+            .systems-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Portfolio</a>
+
+        <div class="header">
+            <h1>Skills & Experience Matrix</h1>
+            <p>Comprehensive overview of technical competencies, professional certifications, and domain expertise developed across compliance, quality assurance, technical support, and administrative operations roles.</p>
+        </div>
+
+        <!-- COMPLIANCE & QUALITY ASSURANCE -->
+        <div class="skill-category">
+            <div class="category-header">
+                <div class="category-icon">✓</div>
+                <div class="category-title">Compliance & Quality Assurance</div>
+            </div>
+
+            <div class="skill-bars">
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>FERPA/HIPAA-Proxy Compliance</span>
+                        <span class="skill-level">Expert</span>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar expert" style="width: 95%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Document Verification & Audit</span>
+                        <span class="skill-level">Expert</span>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar expert" style="width: 95%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Call Quality Monitoring</span>
+                        <span class="skill-level">Advanced</span>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar advanced" style="width: 90%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Fraud Detection & Investigation</span>
+                        <span class="skill-level">Advanced</span>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar advanced" style="width: 90%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Policy Adherence & SOP Development</span>
+                        <span class="skill-level">Advanced</span>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar advanced" style="width: 85%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-details">
+                <div class="detail-card">
+                    <h4>Experience Highlights</h4>
+                    <ul>
+                        <li>1,500+ documents audited for FERPA compliance</li>
+                        <li>1,600+ call reviews conducted across operations</li>
+                        <li>50% fraud violation rate identified and resolved</li>
+                        <li>3 policy changes driven through data-driven escalation</li>
+                    </ul>
+                </div>
+                <div class="detail-card">
+                    <h4>Methodologies</h4>
+                    <ul>
+                        <li>Root cause analysis and pattern recognition</li>
+                        <li>Systematic evidence collection and documentation</li>
+                        <li>Risk assessment and compliance gap identification</li>
+                        <li>Strategic escalation through proper channels</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h4>📊 Proven Track Record</h4>
+                <p>Decade-long pattern of identifying systematic compliance failures, quality gaps, and fraud operations across restaurant, home security, and education industries. Consistently recognized for catching issues other staff normalized or overlooked.</p>
+            </div>
+        </div>
+
+        <!-- TECHNICAL SUPPORT & IT -->
+        <div class="skill-category">
+            <div class="category-header">
+                <div class="category-icon">💻</div>
+                <div class="category-title">Technical Support & IT Helpdesk</div>
+            </div>
+
+            <div class="skill-bars">
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Ticketing Systems (Zendesk, Cherwell)</span>
+                        <span class="skill-level">Proficient</span>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar proficient" style="width: 80%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>System Troubleshooting & Resolution</span>
+                        <span class="skill-level">Proficient</span>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar proficient" style="width: 75%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Remote Desktop & Support Tools</span>
+                        <span class="skill-level">Proficient</span>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar proficient" style="width: 75%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Active Directory Basics</span>
+                        <span class="skill-level">Intermediate</span>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar intermediate" style="width: 65%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Python/SQL Scripting Fundamentals</span>
+                        <span class="skill-level">Intermediate</span>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar intermediate" style="width: 60%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-details">
+                <div class="detail-card">
+                    <h4>IT Helpdesk Experience</h4>
+                    <ul>
+                        <li>50+ tickets resolved nightly (Collegis Education)</li>
+                        <li>70% first-contact resolution rate</li>
+                        <li>Password resets, VPN access, printer troubleshooting</li>
+                        <li>LMS support (Blackboard): uploads, access, navigation</li>
+                        <li>Software installation and compatibility issues</li>
+                    </ul>
+                </div>
+                <div class="detail-card">
+                    <h4>Technical Capabilities</h4>
+                    <ul>
+                        <li>Remote access tools for user assistance</li>
+                        <li>System maintenance (cache/cookies, disk cleanup, defrag)</li>
+                        <li>Diverse user support (students, parents, low-tech literacy)</li>
+                        <li>Seminary school tech navigation assistance</li>
+                        <li>Google IT Support Professional Certificate (2023)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="systems-grid">
+                <div class="system-badge">Zendesk</div>
+                <div class="system-badge">Cherwell</div>
+                <div class="system-badge">Blackboard LMS</div>
+                <div class="system-badge">Remote Desktop</div>
+                <div class="system-badge">Active Directory</div>
+                <div class="system-badge">VPN Systems</div>
+                <div class="system-badge">Python Basics</div>
+                <div class="system-badge">SQL Queries</div>
+            </div>
+        </div>
+
+        <!-- ADMINISTRATIVE & OFFICE SUPPORT -->
+        <div class="skill-category">
+            <div class="category-header">
+                <div class="category-icon">📋</div>
+                <div class="category-title">Administrative & Office Support</div>
+            </div>
+
+            <div class="skill-bars">
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Multi-System CRM Navigation</span>
+                        <span class="skill-level">Advanced</span>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar advanced" style="width: 90%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>High-Volume Document Processing</span>
+                        <span class="skill-level">Advanced</span>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar advanced" style="width: 90%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Email & Written Communication</span>
+                        <span class="skill-level">Advanced</span>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar advanced" style="width: 85%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Call Management & Scheduling</span>
+                        <span class="skill-level">Advanced</span>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar advanced" style="width: 85%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Data Entry & Record-Keeping</span>
+                        <span class="skill-level">Proficient</span>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar proficient" style="width: 80%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-details">
+                <div class="detail-card">
+                    <h4>Administrative Experience</h4>
+                    <ul>
+                        <li>180-200 inbound/outbound calls managed weekly</li>
+                        <li>1,500+ documents processed and approved</li>
+                        <li>Callback scheduling coordinating family availability</li>
+                        <li>Email correspondence for enrollment, updates, re-engagement</li>
+                        <li>Timeline tracking and follow-up on stale leads</li>
+                    </ul>
+                </div>
+                <div class="detail-card">
+                    <h4>Systems & Tools</h4>
+                    <ul>
+                        <li>Salesforce (enrollment portal, case management)</li>
+                        <li>Connexus (ticketing and coordination)</li>
+                        <li>Google Workspace (Docs, Sheets, Forms)</li>
+                        <li>Microsoft Office Suite (Word, Excel, PowerPoint)</li>
+                        <li>OneNote (documentation and tracking)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h4>🎯 High-Volume Operations</h4>
+                <p>Proven ability to manage multiple priorities simultaneously: processing 70+ documents weekly while handling 180-200 calls, coordinating schedules, managing email correspondence, and maintaining detailed CRM documentation—all while identifying systematic process failures.</p>
+            </div>
+        </div>
+
+        <!-- PROJECT COORDINATION & MANAGEMENT -->
+        <div class="skill-category">
+            <div class="category-header">
+                <div class="category-icon">📊</div>
+                <div class="category-title">Project Coordination & Program Management</div>
+            </div>
+
+            <div class="skill-bars">
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Long-Term Project Planning</span>
+                        <span class="skill-level">Proficient</span>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar proficient" style="width: 80%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Timeline & Milestone Management</span>
+                        <span class="skill-level">Proficient</span>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar proficient" style="width: 75%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Documentation & Reporting</span>
+                        <span class="skill-level">Advanced</span>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar advanced" style="width: 85%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Stakeholder Communication</span>
+                        <span class="skill-level">Advanced</span>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar advanced" style="width: 85%"></div>
+                    </div>
+                </div>
+
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Resource Allocation & Budget Management</span>
+                        <span class="skill-level">Intermediate</span>
+                    </div>
+                    <div class="skill-bar-container">
+                        <div class="skill-bar intermediate" style="width: 65%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="skill-details">
+                <div class="detail-card">
+                    <h4>Project Management Experience</h4>
+                    <ul>
+                        <li>Google Project Management Professional Certificate (2024)</li>
+                        <li>3 major investigations (essentially complex projects)</li>
+                        <li>6-year educational program management (ongoing)</li>
+                        <li>Multi-stakeholder coordination across departments</li>
+                        <li>Timeline tracking, milestone management, deliverables</li>
+                    </ul>
+                </div>
+                <div class="detail-card">
+                    <h4>Demonstrated Capabilities</h4>
+                    <ul>
+                        <li>Agile methodologies and adaptive planning</li>
+                        <li>Risk management and issue escalation</li>
+                        <li>Comprehensive documentation practices</li>
+                        <li>Progress tracking and status reporting</li>
+                        <li>Cross-functional team collaboration</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <h4>🔄 Investigation as Project Management</h4>
+                <p>Each case study represents successful project completion: defined scope, stakeholder identification, evidence collection (deliverables), timeline management, risk mitigation, and final reporting. Investigations ARE projects—and I've closed every one successfully.</p>
+            </div>
+        </div>
+
+        <!-- CERTIFICATIONS -->
+        <div class="skill-category">
+            <div class="category-header">
+                <div class="category-icon">🎓</div>
+                <div class="category-title">Certifications & Training</div>
+            </div>
+
+            <div class="skill-details">
+                <div class="detail-card">
+                    <h4>Google Project Management Professional Certificate (2024)</h4>
+                    <ul>
+                        <li>Agile Methodologies & Scrum Framework</li>
+                        <li>Project Planning & Documentation</li>
+                        <li>Risk Management & Issue Tracking</li>
+                        <li>Stakeholder Communication</li>
+                    </ul>
+                </div>
+                <div class="detail-card">
+                    <h4>Google IT Support Professional Certificate (2023)</h4>
+                    <ul>
+                        <li>System Administration Fundamentals</li>
+                        <li>Network Protocols & Troubleshooting</li>
+                        <li>Active Directory Basics</li>
+                        <li>Customer Service in Technical Support</li>
+                    </ul>
+                </div>
+                <div class="detail-card">
+                    <h4>Full Stack Development Certificate (2024)</h4>
+                    <ul>
+                        <li>Python Scripting Fundamentals</li>
+                        <li>SQL Database Logic & Queries</li>
+                        <li>Process Automation Concepts</li>
+                        <li>Data Analysis Applications</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

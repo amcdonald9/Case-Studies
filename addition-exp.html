@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Additional Professional Experience</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-block;
+            background: #fff;
+            color: #667eea;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+
+        .back-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        .header {
+            background: #fff;
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .header p {
+            font-size: 1.3em;
+            color: #7f8c8d;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .experience-section {
+            background: #fff;
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            padding-bottom: 25px;
+            border-bottom: 4px solid #667eea;
+        }
+
+        .section-icon {
+            font-size: 4em;
+            margin-right: 25px;
+        }
+
+        .section-title-group h2 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2em;
+            color: #7f8c8d;
+        }
+
+        .role-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-left: 5px solid #667eea;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+        }
+
+        .role-header {
+            margin-bottom: 20px;
+        }
+
+        .role-title {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .role-details {
+            font-size: 1.1em;
+            color: #7f8c8d;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .stat-item {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 0.95em;
+        }
+
+        .responsibilities {
+            margin-top: 25px;
+        }
+
+        .responsibilities h4 {
+            color: #2c3e50;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        .resp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        .resp-item {
+            padding: 15px;
+            background: #fff;
+            border-radius: 8px;
+            border-left: 3px solid #667eea;
+        }
+
+        .resp-item strong {
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .resp-item span {
+            color: #7f8c8d;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        .highlight-achievement {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 5px solid #f39c12;
+        }
+
+        .highlight-achievement h4 {
+            color: #2c3e50;
+            font-size: 1.3em;
+            margin-bottom: 12px;
+        }
+
+        .highlight-achievement p {
+            color: #2c3e50;
+            line-height: 1.7;
+            font-size: 1.05em;
+        }
+
+        .skills-showcased {
+            background: #e3f2fd;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 25px;
+        }
+
+        .skills-showcased h4 {
+            color: #1565c0;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: #fff;
+            color: #1565c0;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            border: 2px solid #1565c0;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: #1565c0;
+            color: #fff;
+        }
+
+        .program-overview {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 5px solid #28a745;
+        }
+
+        .program-overview h4 {
+            color: #155724;
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+
+        .program-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .program-stat {
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .program-stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #28a745;
+        }
+
+        .program-stat-label {
+            color: #155724;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .outcomes-list {
+            margin-top: 20px;
+        }
+
+        .outcomes-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .outcomes-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #155724;
+            line-height: 1.6;
+        }
+
+        .outcomes-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+            font-size: 1.5em;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .section-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .section-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
+            .stats-row,
+            .resp-grid,
+            .program-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Portfolio</a>
+
+        <div class="header">
+            <h1>Additional Professional Experience</h1>
+            <p>Beyond compliance and quality assurance investigations, my career includes technical support, administrative coordination, and long-term program management—demonstrating versatility and transferable skills applicable to diverse operational roles.</p>
+        </div>
+
+        <!-- IT HELPDESK SECTION -->
+        <div class="experience-section">
+            <div class="section-header">
+                <div class="section-icon">💻</div>
+                <div class="section-title-group">
+                    <h2>IT Helpdesk & Technical Support</h2>
+                    <p class="section-subtitle">High-volume technical troubleshooting and user support experience</p>
+                </div>
+            </div>
+
+            <div class="role-card">
+                <div class="role-header">
+                    <h3 class="role-title">Customer Service Associate – Technical Support</h3>
+                    <p class="role-details">Collegis Education (Remote) | February 2024 – May 2024</p>
+                </div>
+
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Tickets Per Night</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">70%</div>
+                        <div class="stat-label">First-Contact Resolution</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1,000+</div>
+                        <div class="stat-label">Total Tickets Resolved</div>
+                    </div>
+                </div>
+
+                <div class="responsibilities">
+                    <h4>Core Responsibilities & Technical Issues Resolved</h4>
+                    <div class="resp-grid">
+                        <div class="resp-item">
+                            <strong>Account Access</strong>
+                            <span>Password resets, account lockouts, permission errors for students, faculty, and internal staff</span>
+                        </div>
+                        <div class="resp-item">
+                            <strong>Network Connectivity</strong>
+                            <span>VPN access troubleshooting, connection issues, network configuration assistance</span>
+                        </div>
+                        <div class="resp-item">
+                            <strong>Hardware Support</strong>
+                            <span>Printer connectivity, driver installation, peripheral device troubleshooting</span>
+                        </div>
+                        <div class="resp-item">
+                            <strong>LMS Platform (Blackboard)</strong>
+                            <span>Assignment upload failures, class access issues, navigation assistance, course visibility problems</span>
+                        </div>
+                        <div class="resp-item">
+                            <strong>Software Installation</strong>
+                            <span>Required course software downloads, compatibility issues, installation errors</span>
+                        </div>
+                        <div class="resp-item">
+                            <strong>System Maintenance</strong>
+                            <span>Cache/cookies clearing, browser history deletion, disk defragmentation, disk cleanup procedures</span>
+                        </div>
+                        <div class="resp-item">
+                            <strong>Remote Assistance</strong>
+                            <span>Used remote access tools to diagnose and resolve complex technical issues directly</span>
+                        </div>
+                        <div class="resp-item">
+                            <strong>Diverse User Support</strong>
+                            <span>Adapted communication for varying technical literacy: traditional students, adult learners, seminary students with limited tech exposure</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="highlight-achievement">
+                    <h4>🎯 High-Volume Performance Excellence</h4>
+                    <p>Maintained 70% first-contact resolution rate while handling 50+ tickets per night (400+ tickets monthly), significantly exceeding typical helpdesk benchmarks of 50-60% FCR. Achieved this through systematic troubleshooting methodology, comprehensive technical knowledge, and ability to quickly diagnose root causes remotely.</p>
+                </div>
+
+                <div class="skills-showcased">
+                    <h4>Technical Skills Demonstrated</h4>
+                    <div class="skills-tags">
+                        <div class="skill-tag">Zendesk Ticketing</div>
+                        <div class="skill-tag">Cherwell ITSM</div>
+                        <div class="skill-tag">Remote Desktop Tools</div>
+                        <div class="skill-tag">Blackboard LMS</div>
+                        <div class="skill-tag">Active Directory Basics</div>
+                        <div class="skill-tag">VPN Troubleshooting</div>
+                        <div class="skill-tag">System Diagnostics</div>
+                        <div class="skill-tag">Multi-OS Support</div>
+                        <div class="skill-tag">Technical Documentation</div>
+                        <div class="skill-tag">User Training</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- EDUCATIONAL PROGRAM MANAGEMENT -->
+        <div class="experience-section">
+            <div class="section-header">
+                <div class="section-icon">📚</div>
+                <div class="section-title-group">
+                    <h2>Educational Program Management</h2>
+                    <p class="section-subtitle">Long-term project demonstrating planning, organization, and documentation excellence</p>
+                </div>
+            </div>
+
+            <div class="role-card">
+                <div class="role-header">
+                    <h3 class="role-title">Lead Educator & Program Administrator</h3>
+                    <p class="role-details">Home-Based Learning Program | 2019 – Present (6 years, ongoing)</p>
+                </div>
+
+                <div class="program-overview">
+                    <h4>📊 Program Overview & Scope</h4>
+                    <p style="color: #155724; line-height: 1.7; margin-bottom: 15px;">Designed, implemented, and managed comprehensive educational program for two students across multiple grade levels (Preschool through 4th Grade currently), meeting all Arkansas state requirements for core subjects plus enrichment programs. Demonstrates long-term project management, curriculum coordination, progress tracking, and documentation compliance.</p>
+                    
+                    <div class="program-stats">
+                        <div class="program-stat">
+                            <div class="program-stat-value">6 Years</div>
+                            <div class="program-stat-label">Program Duration</div>
+                        </div>
+                        <div class="program-stat">
+                            <div class="program-stat-value">2</div>
+                            <div class="program-stat-label">Students Managed</div>
+                        </div>
+                        <div class="program-stat">
+                            <div class="program-stat-value">8+</div>
+                            <div class="program-stat-label">Subjects per Student</div>
+                        </div>
+                        <div class="program-stat">
+                            <div class="program-stat-value">100%</div>
+                            <div class="program-stat-label">State Compliance</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="responsibilities">
+                    <h4>Program Management Responsibilities</h4>
+                    <div class="resp-grid">
+                        <div class="resp-item">
+                            <strong>Curriculum Development</strong>
+                            <span>Selected, adapted, and implemented age-appropriate curriculum for all required subjects: Language Arts, Mathematics, Science, Social Studies, plus Art, Computer Skills, Music, Physical Education</span>
+                        </div>
+                        <div class="resp-item">
+                            <strong>Multi-Level Coordination</strong>
+                            <span>Simultaneously managed two students at different grade levels (currently 4th Grade and Kindergarten), requiring parallel lesson planning and differentiated instruction</span>
+                        </div>
+                        <div class="resp-item">
+                            <strong>Progress Tracking & Assessment</strong>
+                            <span>Maintained comprehensive records of student progress, conducted regular assessments, documented achievement milestones, tracked learning objectives</span>
+                        </div>
+                        <div class="resp-item">
+                            <strong>Schedule Management</strong>
+                            <span>Developed and maintained daily/weekly lesson schedules, balanced multiple subjects across grade levels, coordinated enrichment activities and field experiences</span>
+                        </div>
+                        <div class="resp-item">
+                            <strong>Resource Allocation</strong>
+                            <span>Researched, evaluated, and acquired educational materials, managed program budget, optimized resource utilization across subjects and students</span>
+                        </div>
+                        <div class="resp-item">
+                            <strong>Technology Integration</strong>
+                            <span>Incorporated educational software, online learning platforms, digital resources; taught computer literacy skills as core competency</span>
+                        </div>
+                        <div class="resp-item">
+                            <strong>Documentation & Compliance</strong>
+                            <span>Maintained attendance records, grade portfolios, achievement documentation; ensured compliance with Arkansas homeschool regulations</span>
+                        </div>
+                        <div class="resp-item">
+                            <strong>Adaptive Planning</strong>
+                            <span>Adjusted curriculum pacing, teaching methods, and materials based on individual learning styles, strengths, and development needs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="highlight-achievement">
+                    <h4>🌟 Exceptional Student Outcomes</h4>
+                    <p><strong>Student 1 (4th Grade):</strong> Reading at 6th grade level (2 grades above current placement), consistently meeting or exceeding expectations across all subjects. Started program in Preschool (2019), demonstrating 5+ years of sustained progress under program management.</p>
+                    <p style="margin-top: 10px;"><strong>Student 2 (Kindergarten):</strong> Reading at 4th grade level (3+ grades above current placement), excelling across all subject areas. Started program in Preschool (2022), showing accelerated development through individualized instruction.</p>
+                </div>
+
+                <div class="skills-showcased">
+                    <h4>Transferable Professional Skills</h4>
+                    <div class="skills-tags">
+                        <div class="skill-tag">Long-Term Planning</div>
+                        <div class="skill-tag">Project Management</div>
+                        <div class="skill-tag">Multi-Stakeholder Coordination</div>
+                        <div class="skill-tag">Documentation Excellence</div>
+                        <div class="skill-tag">Progress Tracking</div>
+                        <div class="skill-tag">Budget Management</div>
+                        <div class="skill-tag">Schedule Coordination</div>
+                        <div class="skill-tag">Adaptive Problem-Solving</div>
+                        <div class="skill-tag">Compliance Management</div>
+                        <div class="skill-tag">Technology Integration</div>
+                    </div>
+                </div>
+
+                <div class="program-overview" style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-left-color: #1565c0;">
+                    <h4 style="color: #0d47a1;">💡 Why This Matters for Professional Roles</h4>
+                    <div class="outcomes-list">
+                        <ul>
+                            <li style="color: #0d47a1;"><strong>Project Management:</strong> 6-year commitment demonstrates long-term planning, milestone tracking, and stakeholder management (students, state requirements, curriculum vendors)</li>
+                            <li style="color: #0d47a1;"><strong>Documentation:</strong> Comprehensive record-keeping mirrors compliance documentation, audit trails, and regulatory reporting required in professional environments</li>
+                            <li style="color: #0d47a1;"><strong>Multi-Tasking:</strong> Managing two students at different levels parallels handling multiple projects, clients, or workstreams simultaneously</li>
+                            <li style="color: #0d47a1;"><strong>Adaptability:</strong> Individualizing instruction demonstrates ability to adjust approaches based on different needs, learning styles, and circumstances—critical for customer service and operations roles</li>
+                            <li style="color: #0d47a1;"><strong>Accountability:</strong> Meeting state requirements while achieving exceptional outcomes shows self-direction, responsibility, and results orientation without direct supervision</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CONNECTING IT ALL -->
+        <div class="experience-section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+            <div style="color: #fff; text-align: center; padding: 20px;">
+                <h2 style="font-size: 2.5em; margin-bottom: 20px;">🔗 The Complete Professional Profile</h2>
+                <p style="font-size: 1.3em; line-height: 1.8; max-width: 1000px; margin: 0 auto;">
+                    My career demonstrates <strong>versatility without dilution</strong>. Whether conducting compliance investigations, resolving IT helpdesk tickets, coordinating administrative workflows, or managing multi-year educational programs, the <strong>core competencies remain consistent</strong>: systematic problem-solving, meticulous documentation, stakeholder communication, and achieving measurable outcomes under complex constraints. This breadth makes me valuable across compliance, quality assurance, technical support, administrative, and operations roles—while my decade-long track record of catching systematic failures provides unique depth in risk identification and process improvement.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

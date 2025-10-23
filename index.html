@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compliance & Operations Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .hero {
+            background: #fff;
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin-bottom: 60px;
+        }
+        
+        .hero h1 {
+            font-size: 3em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        
+        .hero .tagline {
+            font-size: 1.5em;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+        }
+        
+        .hero .intro {
+            font-size: 1.15em;
+            color: #34495e;
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto 40px auto;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .stat-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .stat-box:hover {
+            transform: translateY(-10px);
+        }
+        
+        .stat-number {
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1em;
+            opacity: 0.95;
+        }
+        
+        .case-studies {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        
+        .case-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .case-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .case-header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: #fff;
+            padding: 40px;
+            position: relative;
+        }
+        
+        .case-number {
+            font-size: 0.9em;
+            color: #c0392b;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        
+        .case-title {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        
+        .case-subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .case-body {
+            padding: 40px;
+        }
+        
+        .case-description {
+            color: #34495e;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-size: 1.05em;
+        }
+        
+        .case-highlights {
+            margin-bottom: 30px;
+        }
+        
+        .case-highlights h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .highlight-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .highlight-list li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: #34495e;
+            line-height: 1.6;
+        }
+        
+        .highlight-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+        
+        .case-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .tag {
+            background: #ecf0f1;
+            color: #2c3e50;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+        
+        .view-case-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(102,126,234,0.4);
+        }
+        
+        .view-case-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102,126,234,0.6);
+        }
+        
+        .disclaimer {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            margin-bottom: 40px;
+        }
+        
+        .disclaimer h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+        
+        .disclaimer p {
+            color: #34495e;
+            line-height: 1.8;
+            font-size: 1.05em;
+        }
+        
+        .contact {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        .contact h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        
+        .contact p {
+            color: #7f8c8d;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            background: #ecf0f1;
+            padding: 15px 30px;
+            border-radius: 30px;
+            color: #2c3e50;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .contact-item:hover {
+            background: #bdc3c7;
+        }
+
+        @media (max-width: 1024px) {
+            .case-studies {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.2em;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero {
+                padding: 40px 20px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8em;
+            }
+            
+            .case-title {
+                font-size: 1.5em;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HERO SECTION -->
+        <div class="hero">
+            <h1>Compliance & Operations Portfolio</h1>
+            <p class="tagline">Systematic Problem-Solving in High-Stakes Environments</p>
+            <p class="intro">
+                Specializing in compliance review, quality assurance, and operations process optimization with proven track record of identifying systematic failures, protecting organizational revenue, and driving policy change through data-driven investigation.
+            </p>
+            
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Major Investigations</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">220+</div>
+                    <div class="stat-label">Agents Monitored</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">1,600+</div>
+                    <div class="stat-label">Reviews Conducted</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">2</div>
+                    <div class="stat-label">Policy Changes Driven</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CASE STUDIES -->
+        <div class="case-studies">
+            <!-- CASE STUDY #1 -->
+            <div class="case-card">
+                <div class="case-header">
+                    <div class="case-number">CASE FILE #2024-ENR</div>
+                    <h2 class="case-title">The Broken Handoff</h2>
+                    <p class="case-subtitle">Enrollment Process Investigation</p>
+                </div>
+                <div class="case-body">
+                    <p class="case-description">
+                        Systematic investigation into enrollment process failures at a virtual learning organization, uncovering 50-60% document verification error rate, call harassment patterns, and compliance violations—leading to organization-wide policy change within 24 hours.
+                    </p>
+                    
+                    <div class="case-highlights">
+                        <h4>Key Achievements:</h4>
+                        <ul class="highlight-list">
+                            <li>Reduced enrollment delays by 3+ days through proactive review process</li>
+                            <li>Moved 30+ families per week using optimized workflow</li>
+                            <li>Tracked 100+ families over 2 days documenting call harassment</li>
+                            <li>Drove 3-call-per-week maximum policy (24-hour implementation)</li>
+                            <li>Identified mobile opt-out violations (80% complaint rate)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="case-tags">
+                        <span class="tag">Compliance Review</span>
+                        <span class="tag">FERPA</span>
+                        <span class="tag">Policy Change</span>
+                        <span class="tag">Data Analysis</span>
+                        <span class="tag">Process Optimization</span>
+                    </div>
+                    
+                    <a href="broken-handoff.html" class="view-case-btn">View Full Investigation →</a>
+                </div>
+            </div>
+
+            <!-- CASE STUDY #2 -->
+            <div class="case-card">
+                <div class="case-header">
+                    <div class="case-number">CASE FILE #2023-SEC</div>
+                    <h2 class="case-title">The Metric Manipulation Ring</h2>
+                    <p class="case-subtitle">Quality Assurance Investigation</p>
+                </div>
+                <div class="case-body">
+                    <p class="case-description">
+                        Six-month investigation uncovering systematic fraud affecting 50% of sales agents (30/60), including unauthorized discount coaching network, proxy worker fraud, and toxic culture—resulting in revenue protection and operational restructuring.
+                    </p>
+                    
+                    <div class="case-highlights">
+                        <h4>Key Achievements:</h4>
+                        <ul class="highlight-list">
+                            <li>Promoted from entry-level to Operations Support in 3 months</li>
+                            <li>Conducted 1,500+ call reviews across 120 agents</li>
+                            <li>Identified 50% violation rate (30/60 agents) using unauthorized discounts</li>
+                            <li>Exposed proxy worker fraud (2+ months undetected)</li>
+                            <li>Protected revenue: 6 terminations, 30 coached, monitoring doubled</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="case-tags">
+                        <span class="tag">Quality Assurance</span>
+                        <span class="tag">Fraud Detection</span>
+                        <span class="tag">Revenue Protection</span>
+                        <span class="tag">Remote Monitoring</span>
+                        <span class="tag">Operations</span>
+                    </div>
+                    
+                    <a href="metric-manipulation.html" class="view-case-btn">View Full Investigation →</a>
+                </div>
+            </div>
+
+            <!-- CASE STUDY #3 -->
+            <div class="case-card">
+                <div class="case-header">
+                    <div class="case-number">CASE FILE #2013-RES</div>
+                    <h2 class="case-title">The Phantom Inventory</h2>
+                    <p class="case-subtitle">Loss Prevention Investigation</p>
+                </div>
+                <div class="case-body">
+                    <p class="case-description">
+                        Three-month loss prevention investigation at a high-volume restaurant uncovering systematic inventory manipulation by shift supervisor, identifying $800-1,000+ weekly losses through pattern analysis—resulting in termination and operational restructuring that demonstrated early compliance investigation capabilities.
+                    </p>
+                    
+                    <div class="case-highlights">
+                        <h4>Key Achievements:</h4>
+                        <ul class="highlight-list">
+                            <li>Earned 5+ hospitality service badges demonstrating operational excellence</li>
+                            <li>Volunteered for inventory management beyond core responsibilities</li>
+                            <li>Documented 3-month pattern of systematic inventory discrepancies</li>
+                            <li>Identified $800-1,000+ weekly revenue loss from shift supervisor theft</li>
+                            <li>Promoted to Shift Lead, then Team Lead following investigation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="case-tags">
+                        <span class="tag">Loss Prevention</span>
+                        <span class="tag">Pattern Recognition</span>
+                        <span class="tag">Inventory Control</span>
+                        <span class="tag">Revenue Protection</span>
+                        <span class="tag">Early Career</span>
+                    </div>
+                    
+                    <a href="phantom-inventory.html" class="view-case-btn">View Full Investigation →</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- DISCLAIMER -->
+        <div class="disclaimer">
+            <h3>⚠️ Portfolio Disclaimer</h3>
+            <p>
+                These case studies are based on authentic operational experience from compliance review, quality assurance, and loss prevention roles spanning 2013-2024 across hospitality, home security, and virtual learning industries. To maintain professional discretion and protect proprietary information, organization names and some identifying details have been changed. All methodologies, data patterns, investigation processes, and outcomes are genuine and can be discussed in detail during interviews. The systematic problem-solving approaches documented here are directly applicable to compliance, quality assurance, and operations roles across industries.
+            </p>
+        </div>
+
+        <!-- CONTACT -->
+<div class="contact">
+    <h3>Let's Connect</h3>
+    <p>Interested in discussing these investigations or exploring opportunities?</p>
+
+    <div class="contact-info">
+        <div class="contact-item">
+            📧 
+            <a href="mailto:your@email.com" target="_blank" rel="noopener noreferrer">
+                Email Me
+            </a>
+        </div>
+
+        <div class="contact-item">
+            💼 
+            <a href="https://www.linkedin.com/in/angelia-mcdonald" target="_blank" rel="noopener noreferrer">
+                LinkedIn Profile
+            </a>
+        </div>
+
+        <div class="contact-item">
+            📁 
+            <a href="https://www.dropbox.com/scl/fo/hc3leoa7yql88kotdigpe/ANEi1hl-bsNQhsnhM-tUPvg?rlkey=hns7fx66u5j8e2z6184i3ixmf&st=yppc1zt2&dl=0" target="_blank" rel="noopener noreferrer">
+                View Resume/CV
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
